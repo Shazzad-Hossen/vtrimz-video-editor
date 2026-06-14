@@ -1,0 +1,67 @@
+## Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+publish/
+
+## Visual Studio / Rider / VS Code
+.vs/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+.idea/
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## .NET
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nuget.props
+*.nuget.targets
+*.DotSettings.user
+
+## Test / coverage
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+*.coverage
+*.coveragexml
+
+## Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+## macOS (if copied across machines)
+.DS_Store
+.AppleDouble
+.LSOverride
+
+## FFmpeg cache (downloaded on first export)
+**/ffmpeg/
+
+## App local data / temp
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+## Secrets — never commit
+.env
+.env.*
+*.pfx
+secrets.json
+credentials.json
+
+## Cursor / agent (optional local state)
+.cursor/

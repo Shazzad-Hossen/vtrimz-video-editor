@@ -1,0 +1,28 @@
+<Window x:Class="Vtrimz.Views.ExportDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Exporting - VTRIMZ"
+        Height="180"
+        Width="420"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        Background="{StaticResource BgDarkBrush}"
+        ShowInTaskbar="False">
+    <Border Padding="24" Background="{StaticResource BgPanelBrush}">
+        <StackPanel>
+            <TextBlock Text="Exporting video..."
+                       FontSize="16"
+                       Foreground="{StaticResource TextPrimaryBrush}"
+                       Margin="0,0,0,16"/>
+            <TextBlock x:Name="StatusText"
+                       Text="Preparing..."
+                       Foreground="{StaticResource TextSecondaryBrush}"
+                       Margin="0,0,0,16"/>
+            <ProgressBar IsIndeterminate="True"
+                         Height="4"
+                         Foreground="{StaticResource AccentBrush}"
+                         Background="{StaticResource BgElevatedBrush}"
+                         BorderThickness="0"/>
+        </StackPanel>
+    </Border>
+</Window>

@@ -1,0 +1,26 @@
+<UserControl x:Class="Vtrimz.Views.SplashView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{StaticResource BgDarkBrush}">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="VTRIMZ"
+                       FontSize="56"
+                       FontWeight="Bold"
+                       Foreground="{StaticResource TextPrimaryBrush}"
+                       HorizontalAlignment="Center"/>
+            <TextBlock Text="Developed by Shazzad Hossen"
+                       FontSize="16"
+                       Foreground="{StaticResource TextSecondaryBrush}"
+                       HorizontalAlignment="Center"
+                       Margin="0,16,0,0"/>
+            <ProgressBar IsIndeterminate="True"
+                         Width="200"
+                         Height="3"
+                         Margin="0,40,0,0"
+                         Foreground="{StaticResource AccentBrush}"
+                         Background="{StaticResource BgElevatedBrush}"
+                         BorderThickness="0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
