@@ -27,17 +27,19 @@ cd Vtrimz
 dotnet run
 ```
 
-## Publish Standalone EXE
+## Publish — single shareable EXE
 
 Double-click `publish.bat` or run:
 
 ```bash
-dotnet publish Vtrimz/Vtrimz.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o publish
+dotnet publish Vtrimz/Vtrimz.csproj -c Release -o publish
 ```
 
-Output: `publish/VTRIMZ.exe`
+Output: **`publish/VTRIMZ.exe`** (~190 MB) — শুধু এই একটা ফাইল share করুন।
 
-**Important:** `publish` ফোল্ডারের ভিতরের সব ফাইল একসাথে রাখতে হবে (`VTRIMZ.exe` + `libvlc` ফোল্ডার + অন্যান্য DLL)। শুধু `.exe` কপি করলে চলবে না।
+- Windows 10/11 **64-bit**-এ double-click করলেই চলবে
+- .NET / VLC / অন্য কিছু install করতে হবে না
+- প্রথম **Export**-এ একবার internet লাগতে পারে (FFmpeg auto-download)
 
 ## Tech Stack
 

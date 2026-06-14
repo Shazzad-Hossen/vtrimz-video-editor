@@ -4,6 +4,7 @@
 [Ll]og/
 [Ll]ogs/
 publish/
+publish-single-test/
 
 ## Visual Studio / Rider / VS Code
 .vs/

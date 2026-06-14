@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Windows;
 using System.Windows.Threading;
+using Vtrimz.Helpers;
 using LibVLCSharp.Shared;
 
 namespace Vtrimz;
@@ -31,7 +32,7 @@ public partial class App : Application
         catch (Exception ex)
         {
             MessageBox.Show(
-                $"Failed to start VTRIMZ:\n\n{ex.Message}\n\nMake sure the entire app folder is copied (including libvlc).",
+                $"Failed to start VTRIMZ:\n\n{ex.Message}",
                 "VTRIMZ",
                 MessageBoxButton.OK,
                 MessageBoxImage.Error);
@@ -41,10 +42,8 @@ public partial class App : Application
 
     private static void InitializeLibVlc()
     {
-        var arch = Environment.Is64BitProcess ? "win-x64" : "win-x86";
-        var vlcPath = Path.Combine(AppContext.BaseDirectory, "libvlc", arch);
-
-        if (Directory.Exists(vlcPath) && File.Exists(Path.Combine(vlcPath, "libvlc.dll")))
+        var vlcPath = AppPaths.FindLibVlcDirectory();
+        if (vlcPath != null)
             Core.Initialize(vlcPath);
         else
             Core.Initialize();

@@ -30,7 +30,7 @@ public partial class AboutDialog : Window
 
     private void LoadContent()
     {
-        var photoPath = System.IO.Path.Combine(AppContext.BaseDirectory, "asset", "dev.png");
+        var photoPath = AppPaths.GetAssetPath("asset", "dev.png");
         if (File.Exists(photoPath))
             DeveloperImage.Source = new BitmapImage(new Uri(photoPath));
 
