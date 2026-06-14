@@ -6,13 +6,46 @@
              Background="{StaticResource BgDarkBrush}">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Video player -->
+        <!-- Top bar -->
         <Border Grid.Row="0"
+                Background="{StaticResource BgPanelBrush}"
+                BorderBrush="{StaticResource BorderBrush}"
+                BorderThickness="0,0,0,1"
+                Padding="16,10">
+            <Grid>
+                <TextBlock Text="VTRIMZ"
+                           FontSize="18"
+                           FontWeight="SemiBold"
+                           Foreground="{StaticResource TextPrimaryBrush}"
+                           VerticalAlignment="Center"/>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+                    <Button x:Name="AboutButton"
+                            Content="About"
+                            Style="{StaticResource EditorButton}"
+                            Click="AboutButton_Click"
+                            ToolTip="Developer information"/>
+                    <Button x:Name="ExportButton"
+                            Content="Export"
+                            Style="{StaticResource EditorButton}"
+                            Margin="8,0,0,0"
+                            Click="ExportButton_Click"
+                            IsEnabled="False"
+                            ToolTip="Export video"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Video player -->
+        <Border Grid.Row="1"
                 Background="Black"
                 Margin="0"
                 ClipToBounds="True"
@@ -25,7 +58,7 @@
         </Border>
 
         <!-- Playback controls -->
-        <Border Grid.Row="1"
+        <Border Grid.Row="2"
                 Background="{StaticResource BgPanelBrush}"
                 BorderBrush="{StaticResource BorderBrush}"
                 BorderThickness="0,0,0,1"
@@ -72,7 +105,7 @@
 
         <!-- Timeline -->
         <controls:TimelineControl x:Name="Timeline"
-                                  Grid.Row="2"
+                                  Grid.Row="3"
                                   MinHeight="200"
                                   PositionChanged="Timeline_PositionChanged"
                                   ScreenshotRequested="Timeline_ScreenshotRequested"/>

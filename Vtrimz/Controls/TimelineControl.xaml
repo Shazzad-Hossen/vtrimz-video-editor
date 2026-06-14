@@ -28,7 +28,6 @@
                 <Button x:Name="ZoomInButton" Content="&#xE8A3;" Style="{StaticResource IconButton}" Margin="0,0,4,0" Click="ZoomInButton_Click" ToolTip="Zoom In (Ctrl+Wheel)"/>
                 <Button x:Name="FitButton" Content="Fit" Style="{StaticResource EditorButton}" Margin="0,0,8,0" Click="FitButton_Click" ToolTip="Fit full timeline to window"/>
                 <Button x:Name="ScreenshotButton" Content="&#xE722;" Style="{StaticResource IconButton}" Margin="0,0,4,0" Click="ScreenshotButton_Click" ToolTip="Screenshot"/>
-                <Button x:Name="ExportButton" Content="Export" Style="{StaticResource EditorButton}" Click="ExportButton_Click" IsEnabled="False"/>
                 <TextBlock x:Name="ZoomLabel"
                            Text="100%"
                            Foreground="{StaticResource TextSecondaryBrush}"

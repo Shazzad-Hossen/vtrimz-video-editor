@@ -32,8 +32,9 @@ public partial class TimelineControl : UserControl
 
     public event EventHandler<long>? PositionChanged;
     public event EventHandler? ClipsChanged;
-    public event EventHandler? ExportRequested;
     public event EventHandler? ScreenshotRequested;
+
+    public bool CanExport => _clips.Count > 0 && TotalDurationMs > 0;
 
     private readonly List<TimelineClip> _clips = [];
     private readonly TimelineUndoRedo _undoRedo = new();
@@ -782,7 +783,6 @@ public partial class TimelineControl : UserControl
     private void UpdateCommandStates()
     {
         DeleteButton.IsEnabled = _clips.Count > 1 && _selectedClipId.HasValue;
-        ExportButton.IsEnabled = _clips.Count > 0 && TotalDurationMs > 0;
         UndoButton.IsEnabled = _undoRedo.CanUndo;
         RedoButton.IsEnabled = _undoRedo.CanRedo;
     }
@@ -940,5 +940,4 @@ public partial class TimelineControl : UserControl
     private void UndoButton_Click(object sender, RoutedEventArgs e) => Undo();
     private void RedoButton_Click(object sender, RoutedEventArgs e) => Redo();
     private void ScreenshotButton_Click(object sender, RoutedEventArgs e) => ScreenshotRequested?.Invoke(this, EventArgs.Empty);
-    private void ExportButton_Click(object sender, RoutedEventArgs e) => ExportRequested?.Invoke(this, EventArgs.Empty);
 }

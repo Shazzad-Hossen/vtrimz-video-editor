@@ -43,8 +43,11 @@ public partial class EditorView : UserControl, IDisposable
         _mediaPlayer.EndReached += (_, _) => Dispatcher.BeginInvoke(OnPlaybackEnded);
 
         VideoView.Loaded += OnVideoViewLoaded;
-        Timeline.ClipsChanged += (_, _) => OnClipsChanged();
-        Timeline.ExportRequested += (_, _) => ExportVideo();
+        Timeline.ClipsChanged += (_, _) =>
+        {
+            OnClipsChanged();
+            UpdateExportButtonState();
+        };
 
         Focusable = true;
         PreviewKeyDown += EditorView_PreviewKeyDown;
@@ -128,7 +131,22 @@ public partial class EditorView : UserControl, IDisposable
 
         SeekToSourceTime(0, pause: true);
         _positionTimer.Start();
+        UpdateExportButtonState();
     }
+
+    private void UpdateExportButtonState() =>
+        ExportButton.IsEnabled = Timeline.CanExport;
+
+    private void AboutButton_Click(object sender, RoutedEventArgs e)
+    {
+        var owner = Window.GetWindow(this);
+        if (owner == null)
+            return;
+
+        new AboutDialog(owner).ShowDialog();
+    }
+
+    private void ExportButton_Click(object sender, RoutedEventArgs e) => ExportVideo();
 
     private void OnClipsChanged()
     {
@@ -364,7 +382,9 @@ public partial class EditorView : UserControl, IDisposable
             _mediaPlayer.Volume = (int)e.NewValue;
     }
 
-    private void Timeline_ScreenshotRequested(object sender, EventArgs e)
+    private void Timeline_ScreenshotRequested(object sender, EventArgs e) => TakeScreenshot();
+
+    private void TakeScreenshot()
     {
         if (_mediaPlayer.Media == null)
             return;
